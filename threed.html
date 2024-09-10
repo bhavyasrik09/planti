@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Basic A-Frame Scene with GLB Model</title>
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <style>
+      /* Styling for the fixed button */
+      .redirect-button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 10px 20px;
+        background-color: #3c9a90;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 5px;
+        z-index: 1000; /* Ensure the button is on top of the 3D scene */
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Redirect Button -->
+    <button class="redirect-button" onclick="window.location.href='plant-guides.html'">Go to Plant Guide</button>
+
+    <a-scene>
+      <!-- Asset management system to preload the GLB file -->
+      <a-assets>
+        <a-asset-item id="treeModel" src="flower_bush_tree_royalty_free.glb"></a-asset-item>
+      </a-assets>
+
+      <!-- GLB Model -->
+      <a-gltf-model src="#treeModel" position="0 0 -3" scale="1 1 1" rotation="0 45 0"></a-gltf-model>
+
+      <!-- Ground plane -->
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
+
+      <!-- Sky -->
+      <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
+    <script>
+      window.embeddedChatbotConfig = {
+      chatbotId: "KJqeykrrCR2iPZG4mvH4l",
+      domain: "www.chatbase.co"
+      }
+      </script>
+      <script
+      src="https://www.chatbase.co/embed.min.js"
+      chatbotId="KJqeykrrCR2iPZG4mvH4l"
+      domain="www.chatbase.co"
+      defer>
+      </script>
+  </body>
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Guides - Planti</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f5f1;
+            color: #333;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('frontimage.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: #3c9a90;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #3c9a90;
+        }
+        .navbar ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        main {
+            padding: 60px 20px;
+        }
+
+        #plant-shop h2,
+        #3d-container h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #000;
+        }
+
+        .plant-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .plant-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+            max-width: 30%;
+            box-sizing: border-box;
+        }
+
+        .plant-item img {
+            border-radius: 15px;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .plant-item h3 {
+            font-size: 20px;
+            color: #000;
+            margin: 15px 0;
+        }
+
+        .plant-item p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .plant-item button {
+            background-color: #3c9a90;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .plant-item button:hover {
+            background-color: #000000;
+        }
+
+        #3d-container {
+            margin-top: 50px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: #040504;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 8px 15px;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #000000;
+        }
+
+
+        footer {
+            background-color: #101010;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column; /* Stacks the menu items vertically on smaller screens */
+                gap: 10px;
+                display: none; /* Hidden by default for smaller screens */
+                width: 100%;
+            }
+
+            .menu-icon {
+                display: block; /* Shows the menu icon */
+                font-size: 24px;
+                cursor: pointer;
+            }
+
+            .navbar a {
+                padding: 10px;
+                text-align: center;
+                width: 100%;
+                display: block;
+            }
+
+            .plant-card img {
+                height: auto; /* Adjusts the height automatically */
+            }
+
+            .logo {
+                flex-grow: 1;
+            }
+
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+        /* Media Queries for Responsiveness */
+        @media (min-width: 768px) {
+            .hero {
+                flex-direction: row;
+                text-align: left;
+            }
+
+            .hero-content {
+                max-width: 45%;
+                margin-bottom: 0;
+            }
+
+            .hero-content h1 {
+                font-size: 48px;
+            }
+
+            .hero-image {
+                margin-left: 20px;
+            }
+
+            .info-section {
+                flex-direction: row;
+                align-items: flex-start;
+                justify-content: space-between;
+            }
+
+            .info-box {
+                max-width: 48%;
+            }
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column; /* Stacks the menu items vertically on smaller screens */
+                gap: 10px;
+                display: none; /* Hidden by default for smaller screens */
+                width: 100%;
+            }
+
+            .menu-icon {
+                display: block; /* Shows the menu icon */
+                font-size: 24px;
+                cursor: pointer;
+            }
+
+            .navbar a {
+                padding: 10px;
+                text-align: center;
+                width: 100%;
+                display: block;
+            }
+
+            .plant-card img {
+                height: auto; /* Adjusts the height automatically */
+            }
+
+            .logo {
+                flex-grow: 1;
+            }
+
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">Planti</a>
+            <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="plant-guides.html">Plant Guides</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="plant-shop">
+            <h2>Buy Your Favorite Plants</h2>
+            <div class="plant-container">
+                <div class="plant-item">
+                    <img src="Monstera Deliciosa.jpg" alt="Chinese Money">
+                    <h3>Chinese Money</h3>
+                    <p>$220</p>
+                    <button>Add to Cart</button>
+                </div>
+
+                <div class="plant-item">
+                    <img src="Monstera Deliciosa.jpg" alt="Monstera Deliciosa">
+                    <h3>Monstera Deliciosa</h3>
+                    <p>$244</p>
+                    <button>Add to Cart</button>
+                </div>
+
+                <div class="plant-item">
+                    <img src="Monstera Deliciosa.jpg" alt="Snake Plant">
+                    <h3>Snake Plant</h3>
+                    <p>$230</p>
+                    <button>Add to Cart</button>
+                </div>
+          
+           
+                
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2024 Plant Care. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.navbar ul');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function uploadImage() {
+            const fileInput = document.getElementById('imageUpload');
+            const resultDiv = document.getElementById('result');
+
+            if (fileInput.files.length === 0) {
+                alert('Please select an image.');
+                return;
+            }
+
+            const file = fileInput.files[0];
+            const formData = new FormData();
+            formData.append('image', file);
+
+            // Replace 'YOUR_BACKEND_URL' with your actual backend URL
+            fetch('YOUR_BACKEND_URL', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response data
+                resultDiv.innerHTML = `
+                    <h3>Identification Result:</h3>
+                    <p>${data.result}</p>
+                    <img src="${data.imageUrl}" alt="Identified Plant">
+                `;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                resultDiv.innerHTML = '<p>There was an error processing your request. Please try again.</p>';
+            });
+        }
+    </script>
+    <script>
+        window.embeddedChatbotConfig = {
+        chatbotId: "KJqeykrrCR2iPZG4mvH4l",
+        domain: "www.chatbase.co"
+        }
+        </script>
+        <script
+        src="https://www.chatbase.co/embed.min.js"
+        chatbotId="KJqeykrrCR2iPZG4mvH4l"
+        domain="www.chatbase.co"
+        defer>
+        </script>
+</body>
+</html>
+
+
+

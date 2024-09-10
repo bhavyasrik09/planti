@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Guides - Planti</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f5f1;
+            color: #333;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('frontimage.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: #40E0D0;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 8px 15px;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #3c9a90;
+        }
+
+        main {
+            padding: 60px 20px;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .hero-content {
+            max-width: 90%;
+            margin-bottom: 30px;
+        }
+
+        .hero-content h1 {
+            font-size: 36px;
+            line-height: 1.2;
+            color: #000000;
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            margin: 20px 0;
+            color: #171717;
+        }
+
+        .btn {
+            background-color: #3c9a90; /* Turquoise */
+
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #000000;
+        }
+
+        .hero-image img {
+            border-radius: 15px;
+            width: 100%;
+            max-width: 380px;
+            height: auto;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .info-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .info-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            max-width: 90%;
+        }
+
+        .info-box img {
+            border-radius: 15px;
+            height: auto;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .info-box h3 {
+            font-size: 20px;
+            color: #000000;
+            margin-bottom: 15px;
+        }
+
+        .info-box p {
+            margin-top: 15px;
+            color: #000000;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        footer {
+            background-color: #101010;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (min-width: 768px) {
+            .hero {
+                flex-direction: row;
+                text-align: left;
+            }
+
+            .hero-content {
+                max-width: 45%;
+                margin-bottom: 0;
+            }
+
+            .hero-content h1 {
+                font-size: 48px;
+            }
+
+            .hero-image {
+                margin-left: 20px;
+            }
+
+            .info-section {
+                flex-direction: row;
+                align-items: flex-start;
+                justify-content: space-between;
+            }
+
+            .info-box {
+                max-width: 48%;
+            }
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column; /* Stacks the menu items vertically on smaller screens */
+                gap: 10px;
+                display: none; /* Hidden by default for smaller screens */
+                width: 100%;
+            }
+
+            .menu-icon {
+                display: block; /* Shows the menu icon */
+                font-size: 24px;
+                cursor: pointer;
+            }
+
+            .navbar a {
+                padding: 10px;
+                text-align: center;
+                width: 100%;
+                display: block;
+            }
+
+            .plant-card img {
+                height: auto; /* Adjusts the height automatically */
+            }
+
+            .logo {
+                flex-grow: 1;
+            }
+
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">Planti</a>
+            <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="plant-guides.html">Plant Guides</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 id="headline">Proper Care <br><span id="headline-span">of Plants</span></h1>
+                <p id="description">Caring for indoor plants is a pleasant activity that can turn into a real hobby.</p>
+                <a href="about.html" class="btn" id="explore-btn">Explore More</a>
+            </div>
+            <div class="hero-image">
+                <img src="frontimage.jpg" alt="Person spraying plant">
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="info-box">
+                <img src="front0.jpg" alt="Video Thumbnail">
+            </div>
+            <div class="info-box">
+                <h3>“There are no gardening mistakes, only experiments.” – Janet Kilburn Phillips</h3>
+                <p id="text">If you’ve been thinking about bringing some green home, 
+                    there really couldn’t be a better time to do it. 
+                    The climate change crisis has reached such heights now that 
+                    school kids are leaving their classrooms to become environment activists, 
+                    reminding us that if we continue consuming at the current rate, 
+                    we might not even be able to leave a healthy planet behind for them. 
+                    While indoor plants may not help as much as, say, planting a tree outdoors, 
+                    they’re certainly better than nothing. Not only would they 
+                    help increase the oxygen level in your home, they will also boost the mood 
+                    of your space by keeping things fresh and lively.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Plant Care. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.navbar ul');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function uploadImage() {
+            const fileInput = document.getElementById('imageUpload');
+            const resultDiv = document.getElementById('result');
+
+            if (fileInput.files.length === 0) {
+                alert('Please select an image.');
+                return;
+            }
+
+            const file = fileInput.files[0];
+            const formData = new FormData();
+            formData.append('image', file);
+
+            // Replace 'YOUR_BACKEND_URL' with your actual backend URL
+            fetch('YOUR_BACKEND_URL', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response data
+                resultDiv.innerHTML = `
+                    <h3>Identification Result:</h3>
+                    <p>${data.result}</p>
+                    <img src="${data.imageUrl}" alt="Identified Plant">
+                `;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                resultDiv.innerHTML = '<p>There was an error processing your request. Please try again.</p>';
+            });
+        }
+    </script>
+    <script>
+        window.embeddedChatbotConfig = {
+        chatbotId: "KJqeykrrCR2iPZG4mvH4l",
+        domain: "www.chatbase.co"
+        }
+        </script>
+        <script
+        src="https://www.chatbase.co/embed.min.js"
+        chatbotId="KJqeykrrCR2iPZG4mvH4l"
+        domain="www.chatbase.co"
+        defer>
+        </script>
+</body>
+</html>
+
+
